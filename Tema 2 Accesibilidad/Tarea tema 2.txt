@@ -1,0 +1,13 @@
+Haz una tabla donde se indique para el diseño de cada una de las páginas de la práctica de la unidad de trabajo "Planificación de Interfaces gráficas", el tipo o tipos de discapacidad: visual, auditiva, cognitiva, motriz que habrá que tener en cuenta.
+
+En el enunciado del caso práctico del apartado 2 de esta unidad "El consorcio World Wide Web (W3C)" decía:
+"Juan tiene que revisar toda la documentación sobre accesibilidad disponible en la red ya que sabe que en la W3C se está trabajando continuamente tanto en el tema del diseño Web como en el tema de la accesibilidad a los contenidos y, es posible que lo que estaba vigente hace un mes ya esté desaprobado en este momento. Tiene que hacer una lista para sus compañeros de BK programación con todo lo que hay que tener en cuenta para que el proyecto encomendado cumpla con el nivel de conformidad A para poder optar a la subvención del ayuntamiento. También deberá buscar herramientas que le permitan verificar de forma automática y manual el nivel de conformidad alcanzado."
+Esta parte de la tarea consiste en ayudar a Juan a realizar su tarea. Supongamos que en la página principal vamos a sustituir la sección de presentación de la empresa (el apartado “El tacón de Oro” ) por un slider.  Deberás encargarte de hacer una relación Pautas y Criterios de éxito que deberá verificarse de acuerdo al Nivel de conformidad A y que guarden relación con este slider.
+En la relación deberás incluir sólo las técnicas generales y suficientes correspondientes a las dos primeras pautas del primer objetivo.
+Indica los pasos a seguir para verificar dichas técnicas.
+La relación se puede presentar en forma de tabla con 4 columnas:
+
+Pauta.
+Criterio de éxito.
+Técnica.
+Test.
