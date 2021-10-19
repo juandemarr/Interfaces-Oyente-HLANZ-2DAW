@@ -3,5 +3,9 @@ que sean distintos a los desarrolladores.
 
 https://es.semrush.com/blog/usabilidad-web-principios-jakob-nielsen/
 https://www.youtube.com/watch?v=KZgVFi5Kp_8
-guia de evaluacion heuristica de la usabilidad: http://www.nosolousabilidad.com/articulos/heuristica.htm
+
+* guia de evaluacion heuristica de la usabilidad: http://www.nosolousabilidad.com/articulos/heuristica.htm
+
 https://www.youtube.com/watch?v=_4xs1n4wCEg
+
+Preguntas para seleccion de usuarios y test de usabilidad: http://www.uiaccess.com/justask/es/ut_ppt-screen.html

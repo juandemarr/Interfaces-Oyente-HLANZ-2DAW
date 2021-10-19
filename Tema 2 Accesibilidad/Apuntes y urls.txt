@@ -1,0 +1,6 @@
+w3 : https://www.w3.org/
+wcag 2.1: https://www.w3.org/WAI/standards-guidelines/wcag/glance/es
+Pautas de accesibilidad del contenido web 2.0 : http://www.codexexempla.org/traducciones/pautas-accesibilidad-contenido-web-2.0.htm
+
+Vision general sobre la evaluacion de la accesibilidad web: https://www.w3.org/WAI/test-evaluate/es
+* Herramientas para analizar la accesibilidad web: https://www.w3.org/WAI/ER/tools/

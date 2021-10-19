@@ -8,3 +8,6 @@ usar <abbr title="explicacion">, <acronym> aparecera el contenido del title en u
 Especificación de HTML5 => https://html.spec.whatwg.org/multipage/
 
 si en un enlace de <a> le indicamos al final #segundaseccion, no se irá al principio de esa pagina sino donde esté ese id
+
+<sub>2</sub> subindice
+<sup>2</sup> superindice
