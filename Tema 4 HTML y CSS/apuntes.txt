@@ -1,15 +1,56 @@
-cada seccion puede tener su header y footer, mientras que la etiqueta main solo aparece una sola vez.
+﻿cada seccion puede tener su header y footer, mientras que la etiqueta main solo aparece una sola vez.
 
 li elemento de bloque, para definir ancho y alto
 	a elemento de linea, no se puede definir lo de arriba
 
 usar <abbr title="explicacion">, <acronym> aparecera el contenido del title en un cuadradito desplegable al pasar el raton
 
-Especificaci�n de HTML5 => https://html.spec.whatwg.org/multipage/
+Especificación de HTML5 => https://html.spec.whatwg.org/multipage/
 
-si en un enlace de <a> le indicamos al final #segundaseccion, no se ir� al principio de esa pagina sino donde est� ese id
+si en un enlace de <a> le indicamos al final #segundaseccion, no se irá al principio de esa pagina sino donde esté ese id
 
 <sub>2</sub> subindice
 <sup>2</sup> superindice
 
+/////////////////////////////////////////////////////////////////
 Especificacion de HTML5 => https://html.spec.whatwg.org/multipage/
+new properties CSS3: https://www.w3.org/TR/css-ui-3/
+evolucion de los modulos de css3 => https://www.w3.org/Style/CSS/current-work
+compatibilidades de las propiedades con los navegadores => Can I use: http://caniuse.com
+
+////////////////////////////////////////////////////////////////
+HERRAMIENTAS DE VALIDACION
+CSS=> http://jigsaw.w3.org/css-validator/
+Si el proceso de validación no encuentra errores, sus autores pueden incluir en la
+página web un icono como el siguiente
+
+Firefox ofrece un complemento que puede instalarse y permite validar
+un sitio web. Dicho complemento puede descargarse en
+https://addons.mozilla.org/es-es/firefox/addon/css-validator/
+
+XHTML-CSS (http://xhtml-css.com/) es otra herramienta de validación que puede
+utilizarse indistintamente para comprobar la bondad (lo adecuado) de nuestro
+código XHTML y el CSS
+
+ (plugins) que permiten examinar CSS y detectar errores y editar
+código al instante. Algunos ejemplos son:
+● Firebug (http://getfirebug.com/): es unplugin para Firefox y Chrome
+(Firebug Lite). permite inspeccionar códigos HTML y Javascript.
+● Pendule
+(https://chrome.google.com/webstore/detail/gbkffbkamcejhkcaocmkdeiiccp
+mjfdi): es un plugin de Chrome que está más especializado en CSS,
+permitiendo validar CSS pero también visualizar reglas, deshabilitarlas,
+mostrar los colores usados, etc. (depurar)
+
+HERRAMIENTAS QUE GENERAN CODIGO CSS
+● List-o-matic
+(http://www.accessify.com/tools-and-wizards/developer-tools/list-o-matic/)
+● CSS Layout Generator (http://www.pagecolumn.com/)
+● CSS Text Wrapper (http:/ /www.csstextwrap.comI): es una herramienta que
+permite colocar mediante CSS un texto dentro de la forma que se desee. Lo
+normal es colocar los textos en rectángulos. Pero esta herramienta genera
+código para colocarlo según la forma (circular, trapezoidal, triangular, etc.)
+que el usuario elija visualmente.
+
+FreeCSSTemplates (http://www.freecsstemplates.org/) es uno de los sitios que
+ofrecen plantillas CSS3-HTML5 gratuitas

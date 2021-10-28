@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Pseudoclases para los formularios</title>
+<meta charset="UTF-8" />
+<style>
+    #acuerdo:checked+label {
+    background-color: gold;
+    font-weight: bold;
+    }
+    #hombre:checked+label, #mujer:checked+label {
+    font-style: italic;
+    }
+    :enabled {
+    background-color: lightgreen;
+    }
+    :disabled {
+    background-color: lightcoral;
+    }
+
+    /*FOCUS*/
+    input:focus {
+    /*outline: solid 3px green;
+    outline-offset: 10px;*/
+    }
+    input#envio {
+    background: none;
+    }
+
+    /*VALIDATION*/
+    input {
+    border: solid 1px gray;
+    width: 200px;
+    }
+    label, input{
+    display: inline-block;
+    }
+    label {
+    width: 100px;
+    /*text-align: right;*/
+    margin-right: 10px;
+    }
+    input[type=submit]{
+    width: 75px;
+    background: none;
+    }
+    /*background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit;*/
+    input:focus:invalid {
+    /* background: url(rojo.jpg) no-repeat 98% center; */
+    background-image: url(rojo.jpg);
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: 98%;
+    }
+    input:focus:valid {
+    background: url(verde.jpg) 98%/10px no-repeat;
+    }
+</style>
+</head>
+<body>
+    <form id="form1" method="#" action="#">
+        <p>
+            <label for="nombre">Su nombre: </label>
+            <input type="text" id="nombre" />
+        </p>
+        <p>
+            <label for="edad">Su edad: </label>
+            <input type="text" id="edad" disabled="disabled"/>
+        </p>
+        <p>
+            <input type="radio" name="sexo" id="hombre" value="hombre" />
+            <label for="hombre">Hombre</label><br/>
+            <input type="radio" name="sexo" id="mujer" value="mujer" />
+            <label for="hombre">Mujer</label>
+        </p>
+        <p>
+            <input type="checkbox" id="acuerdo" />
+            <label for="acuerdo">Estoy de acuerdo con el reglamento</label>
+        </p>
+    </form>
+
+    <!--FOCUS-->
+    <form id="form1" method="#" action="#">
+        <p>
+            <label for="nombre">Su nombre: </label>
+            <input type="text" name="nombre" id="nombre" required />
+        </p>
+        <p>
+            <label for="edad">Su edad: </label>
+            <input type="text" name="edad" id="edad" />
+        </p>
+        <p>
+            <input type="submit" id="envio" value="Enviar" />
+        </p>
+    </form>
+
+    <!--VALIDATION-->
+    <form id="inscription" method="#" action="#">
+        <p>
+            <label for="nombre">Su nombre: </label>
+            <input type="text" id="nombre" required />
+        </p>
+        <p>
+            <label for="email">Su e-mail: </label>
+            <input type="email" id="email" required />
+        </p>
+        <p>
+            <label for="edad">Su edad: </label>
+            <input type="text" id="edad" pattern="\d{2}" />
+        </p>
+        <p>
+            <input type="submit" id="envio" value="Enviar" />
+        </p>
+    </form>
+</body>
+</html>
