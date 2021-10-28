@@ -1,0 +1,16 @@
+Práctica de flex
+Implementar la interfaz de la página de compra online del sitio "El tacón de Oro" usando técnicas de Flexbox Layout, incluyendo todos los elementos (cabecera, menú y pie incluidos). Puedes encontrar el wireframe de la interfaz en la descripción de la práctica anterior. En concreto:
+
+
+
+Para la cabecera: El logotipo de la empresa aparece a la izquierda y el nombre a la derecha. Será el logotipo el que "empuje" al nombre  a la derecha. Tanto el logotipo como el nombre de la empresa aparecen centrados verticalmente.
+En la zona de navegación sucede lo mismo, tanto el buscador como el menú aparecen "pegados" a los extremos de la página y centrados verticalmente.
+En la zona de contenidos la columna de categorías ocupa el 25% del ancho total de su contenedora, la zona de productos el resto.
+En el pie de página las columnas ocupan lo mismo.
+Los bloques para los productos tienes tres zonas, arriba el nombre del producto, después su imagen (todas tienen el mismo tamaño) y abajo la descripción, color y precio. La ultima fila se "empuja" hacia abajo por la zona de la imagen.
+Aplica los márgenes y rellenos que consideres necesarios para mejorar el aspecto de la interfaz.
+Aplica cuantos elementos consideres necesarios (esquinas redondeadas, colores o efectos de fondos, bordes, fuentes, sombras, etc.) para mejorar el aspecto de la página.
+Se tendrá en cuenta el uso que se haga del color.
+Se tendrá en cuenta el uso de fuentes externas.
+Se tendrá en cuenta el uso adecuado de las etiquetas HTML5 para sentido semántico (main, header, footer, nav, aside, section, article).
+Se valorará usar el menor número de clases e identificadores posible.

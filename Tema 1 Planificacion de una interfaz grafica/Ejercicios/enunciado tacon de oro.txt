@@ -1,0 +1,21 @@
+Práctica del tema 1
+Descripción de la tarea:
+La práctica consiste en elaborar tres documentos para el supuesto que se proporciona (cuyo enunciado puedes encontrar en el documento adjunto Proyecto DIW 20-21.pdf):
+
+Guía de estilos. Puede ser una guías de estilos visual siguiendo los ejemplos que aparecen en las carpetas de esta semana. En ella deben aparecer, como mínimo, Los colores, tipografías, iconos e imágenes  y diferentes elementos interactivos, como botones o elementos de formulario. Tienes diferentes ejemplos de Guías de estilo visuales en la carpeta Ejemplos de guías de estilo visual, además de las mencionadas en el documento de la práctica adjunto y en el tema.
+Mapa de navegación o estructura del sitio. A la hora de hacerlo recuerda que, aunque solo tenemos dos páginas, la página principal tiene varias secciones, cada una de las cuales es un elementos del mapa de navegación y en el menú. Tienes varios ejemplos de mapas de navegación de diferentes tipos en la carpeta Ejemplos de mapas de navegación del tema.
+Wireframes o estructura de las páginas del sitio web. En este caso de deben hacer dos, uno para la página principal y otro para la página de compra online. La descripción de la estructura de las páginas la tienes en el documento Practicas tema 1.pdf, que  tienes adjunto a esta Tarea. Para tomar ideas te he dejado varios ejemplos en la carpeta Ejemplos de estructuras de páginas del tema.
+Herramientas útiles:
+Para la guía de estilos puedes usar cualquier herramienta online que te calcule el código hexadecimal de un color,  también las hay que permiten obtener los colores principales de alguna imagen (por ejemplo un logotipo) u obtener los colores afines para generar una paleta de colores. Puedes buscar en Internet "Generar paleta de colores" y seleccionar la herramienta que prefieras. Puedes usar por ejemplo la herramienta de Adobe Color-wheel que permite subir un archivo con una imagen (el logotipo de la empresa, por ejemplo) y a partir de ella sacar la paleta de colores de esa imagen y otras paletas que armonizan con la imagen según diferentes reglas de obtención de los colores. 
+
+Para realizar los diagramas de las estructuras del sitio y de las páginas puedes usar alguna de estas herramientas:
+
+Pencil:  es una herramienta bastante potente, pero algo más sencilla para la generación de wireframes. Es software libre.
+Balsamiq wireframes: Puedes descargar una versión de prueba de 30 días de su web. Es una herramienta bastante potente para la generación diagramas y wireframes, e incluso de la estructura del sitio.
+Si prefieres una herramienta online puedes usar Figma.
+Para crear el logotipo de la empresa puedes usar una aplicación como Canva.
+
+Cualquier otra que conozcas y se adecúe a la tarea.
+A continuación te dejo un video donde puedes observar el manejo básico de la herramienta Balsamiq Wireframes:
+https://youtu.be/Y398S0IhCzE
+

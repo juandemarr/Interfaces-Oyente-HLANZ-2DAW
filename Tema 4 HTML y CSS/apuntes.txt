@@ -11,3 +11,5 @@ si en un enlace de <a> le indicamos al final #segundaseccion, no se irá al princ
 
 <sub>2</sub> subindice
 <sup>2</sup> superindice
+
+Especificacion de HTML5 => https://html.spec.whatwg.org/multipage/
