@@ -1,0 +1,63 @@
+﻿cada seccion puede tener su header y footer, mientras que la etiqueta main solo aparece una sola vez.
+
+li elemento de bloque, para definir ancho y alto
+	a elemento de linea, no se puede definir lo de arriba
+
+usar <abbr title="explicacion">, <acronym> aparecera el contenido del title en un cuadradito desplegable al pasar el raton
+
+Especificación de HTML5 => https://html.spec.whatwg.org/multipage/
+
+si en un enlace de <a> le indicamos al final #segundaseccion, no se irá al principio de esa pagina sino donde esté ese id
+
+<sub>2</sub> subindice
+<sup>2</sup> superindice
+
+//Eliminar estilos del navegador
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+button{
+background:none;
+outline:none;
+cursor:pointer;
+}
+ul{
+list-style:none;
+}
+a{
+text-decoration:none;
+color:inherit
+
+}
+
+//sin sass
+:root{
+	--main-purple-color:#CACACA;
+}
+
+.page-header ul li:not(:last-child){  //todos menos el ultimo
+	padding-right:15px;
+}
+.page-main{
+	background: var(--main-purple-color) url(city.jpg) no-repeat center / cover;
+	background-blend-mode:luminosity;  //como se va a mezclar los dos fondos
+}
+.page-main p+p{  //a todos los p que vayan despues de un p (si hay dos al segundo)
+	margin-top:20px;
+}
+
+la tecnica mobile first no es obligatoria, se hace segun en donde se vaya a ver mas a menudo,
+y lo que resulte mas comodo. De base el tamaño mas comun, y luego media queries para el resto
+
+ver MODOS DE MEZCLA EN CSS (blend)
+
+GRID
+ver grid-template: "header header" 100px esto de al lado es el alto
+				   "aside main" auto
+				   /200px 1fr
+				   //esto de abajo es el ancho, antecedido por /
+
+grid-column-end: span 6; //que se expanda por 6 columnas
+grid-gap: espacioFilas espacioColumnas; independientemente de lo que ocupe el grid-template-columns y rows
