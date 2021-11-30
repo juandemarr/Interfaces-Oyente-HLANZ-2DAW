@@ -1,0 +1,56 @@
+sass --watch input.scss output.css //para compilarlo
+* Instalar por npm
+* Sino descargarlo desde la pag, copiarla en C: y modificar la variable de entorno  PATH:
+(permite ejecutar ese comando del fichero ejecutable desde cualquier ruta).
+En sistema, variables de entorno y añadir: C:\dart-sass al principio
+
+VARIABLES
+$font:Helvetica, sans-serif;
+body{
+    font:100% $font;
+}
+
+ANIDAMIENTO
+nav{
+    ul{
+
+    }
+    li{
+
+    }
+}
+
+PARCIALES
+archivos pequeños de sass para luego incluirlos en el principal.
+Se nombran _parcial.scss y no da lugar a un archivo css, pero si se pueden usar sus variables etc.
+se llaman con @use 'parcial'
+
+MIXINS. Como una funcion, se declara un trozo de estilos a usar despues
+@mixin theme($theme:DarkGray){//valor por defecto
+    background:$theme;
+    color:white;
+}
+
+para usarlo:
+@include theme;
+.alert{
+    @include theme($theme:DarkRed);
+}
+
+HERENCIA. Parecido a mixins pero sin parametros
+%message-shared{ //estas clases con % no se usan en ningun elemento, no llegan al css.
+                // Sirven para ser heredadas o extendidas.
+                //Tambien se pueden heredar clases normales
+    padding:10px;
+}
+div{
+    @extend %message-shared
+}
+
+OPERADORES
+@use "sass:math";
+
+article[role="main"]{
+    width:math.div(cantidadquequiero , cantidadtotal) * 100% //saca el porcentaje que quiero
+}
+
