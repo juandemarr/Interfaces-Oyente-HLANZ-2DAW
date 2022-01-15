@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de video</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <section id="main">
+        <audio controls id="audio">
+            <source src="audio_clip1.mp3" type="audio/mp3">
+            Your browser doesn't support audio
+        </audio>
+
+        <input type="file" id="ficheros" name="files[]" multiple><!--multiple permite seleccionar varios archivos-->
+
+        <div class="botones">
+            <div class="flex">
+                <button id="play">Play/Pause</button>
+                <button id="restart">Restart</button>
+            </div>
+            <div class="flex">
+                <button id="v-up">Volumen Up</button>
+                <button id="v-down">Volumen Down</button>
+                <button id="more-5">+5 s.</button>
+                <button id="less-5">-5 s.</button>
+            </div>
+        </div>
+        
+        <p id="duracion"></p>
+        <p id="nombreArchivo"></p>
+      
+    </section>
+</body>
+</html>

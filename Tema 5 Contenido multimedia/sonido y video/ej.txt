@@ -1,0 +1,19 @@
+
+AUDIO
+Realiza un reproductor de audio HTML 5 + CSS + JavaScript. Las características del control de audio deben ser las siguientes:
+
+Botón de Pausa/Reproducción.
+Visualizar el tiempo de reproducción actual.
+Visualizar el nombre del fichero de audio que se está reproduciendo actualmente.
+Al pausar el audio desaparecen todos los elementos del visualizador excepto el botón de reproducción.
+Debe funcionar como mínimo en dos de los si­guientes navegadores: Google Chrome, Internet Explorer, Firefox y Opera
+Aplicar hojas de estilo para dar formato al reproductor.
+Como ampliación añadir un formulario que permita seleccionar un archivo del disco duro y reproducirlo.
+
+VIDEO
+Crea una aplicación HTML5 que contenga una página con los siguientes elementos:
+Una caja de texto
+Un botón de inicio
+Un reproductor de vídeo
+Al introducir una lista de archivos de vídeo en la caja de texto y pulsar el botón, deben empezar a reproducirse esos vídeos, uno detrás de otro. Obviamente los archivos de vídeo deben existir o no serán reproducidos. En el caso de que el archivo de vídeo no se añada o no exista la aplicación debe mostrar un error que diga "El fichero de vídeo no existe".
+Añade métodos de soporte para todos los eventos que se han listado previamente en el API de vídeo y haz que esos eventos se muestren por pantalla.
