@@ -1,0 +1,42 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+}
+body{
+    background-color:rgba(223, 194, 115, 0.878);
+}
+#main{
+    width:45%;
+    margin:3rem auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+audio{
+    margin:0 0 1.25rem;
+}
+.botones{
+    margin:2rem 0;
+}
+.flex:first-child{
+    display:flex;
+    margin:0 0 1rem 0;
+}
+button{
+    color:rgb(253, 224, 184);
+    background-color:orangered;
+    border:1px solid orangered;
+    padding:0.65rem 1rem;
+    border-radius:10px;
+    margin:0 0.3rem 0 0;
+    cursor:pointer;
+    font-weight: bold;
+}
+button:hover{
+    transition:.3s ease-out;
+    color:orangered;
+    background-color:#e2c881e0;
+}
+p{
+    margin:0 0 0.75rem 0;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Video player with playlist</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <style>
+      a {
+          color: #000;
+          font-weight: 400;
+          font-variant: small-caps;
+          display: block;
+          width: 200px;
+          height: 50px;
+          background-color:beige;
+          border: black solid 1px;
+          border-radius: 5px;
+          margin-left: 20px;
+      }
+  </style>
+</head>
+<body>
+	<header>
+        <h1>Reproductor de video con lista de reproducción</h1>
+		<input type="file" id="ficheros" accept="video/*" style="display:none" multiple onchange="handleFiles(this.files)">
+        <a href="javascript:doClick()">Selecciona los videos a reproducir</a>
+		<div id="muestra_carga"></div>
+	</header>
+
+	<section>
+        <button onclick="playVideo();" class="btn btn-success">
+            Play <i class="glyphicon glyphicon-play"></i>
+        </button>
+        <button onclick="pauseVideo();" class="btn btn-warning">
+            Pause <i class="glyphicon glyphicon-pause"></i>
+        </button>
+        <button onclick="previous()" class="btn btn-info">
+            Previous <i class="glyphicon glyphicon-fast-backward"></i>
+        </button> 
+        <button onclick="next();"  class="btn btn-info">
+            Next <i class="glyphicon glyphicon-fast-forward"></i>
+        </button>
+		<button onclick="avanza10();"  class="btn btn-info">
+      		Avanza 10<i class="glyphicon glyphicon-fast-forward"></i>
+    	</button> 		
+		<button onclick="retrocede10();"  class="btn btn-info">
+      		Retrocede 10<i class="glyphicon glyphicon-fast-forward"></i>
+    	</button> 
+
+        <div id="info"></div>
+				
+		<select id="lista_reproduccion"></select>
+		<button onclick="reproducir();"  class="btn btn-info">
+      		Reproducir<i class="glyphicon glyphicon-fast-forward"></i>
+    	</button> 
+	</section>
+
+    <video width="480" height="320" id="myVideo">
+
+    Your browser does not support the <video> element. 
+    </video>
+		
+
+
+
+<script type='text/javascript'>
+    theVideo = document.querySelector("#myVideo");
+    info = document.querySelector("#info");
+	muestra_carga = document.querySelector("#muestra_carga");
+	lista = document.querySelector("#lista_reproduccion");
+		
+    
+    var videos=[];
+    var nombres=[];
+	var current = 0;
+	var carga = 0;
+	muestra_carga.innerHTML = "Videos cargados: " + carga;
+
+    function doClick() {
+        var el = document.getElementById("ficheros");
+        if (el) {
+            el.click();
+        }
+    }
+	
+	function handleFiles(files) {
+        var d = document.getElementById("muestra_carga");
+        var select = document.getElementById("lista_reproduccion");
+        
+        if (!files.length) {
+            d.innerHTML = "<p>¡No se han seleccionado archivos!</p>";
+        } else {
+            for (var i=0; i < files.length; i++) {
+            
+                videos.push(URL.createObjectURL(files[i]));
+                nombres.push(files[i].name);
+                opcion = document.createElement("option");
+                opcion.value = carga;
+                opcion.innerHTML = files[i].name;
+                select.appendChild(opcion);
+                carga++;
+                URL.revokeObjectURL(files[i]);
+            }
+            d.innerHTML = "Videos cargados: " + carga;
+            cargar_video();
+        }
+}
+
+
+	function cargar_video(){
+        theVideo.src = videos[current];
+        theVideo.load();
+    }
+		
+    function playVideo() {
+        cargar_video();        
+        theVideo.play();
+        info.innerHTML = 'Now playing ' + nombres[current];
+    }
+    
+    function pauseVideo() {
+       theVideo.pause();
+       info.innerHTML = nombres[current] + ' paused';
+    }
+
+    function previous() {
+        if (current > 0) {
+            current--;
+        }
+		else{
+			current = videos.length-1;
+		}
+        playVideo();
+    }
+    
+    function next() {
+        if (current < videos.length-1) {
+            current++;
+        }
+		else{
+			current = 0;
+		}
+        playVideo();
+    }
+		
+		function avanza10(){
+			theVideo.currentTime += 10;
+		}
+		
+		function retrocede10(){
+			theVideo.currentTime -= 10;
+		}
+		
+		
+		function reproducir(){
+			current = document.getElementById("lista_reproduccion").value;
+			playVideo();
+		}
+		
+		theVideo.addEventListener('ended', next, false);
+		
+		
+</script>
+</body>
+</html>

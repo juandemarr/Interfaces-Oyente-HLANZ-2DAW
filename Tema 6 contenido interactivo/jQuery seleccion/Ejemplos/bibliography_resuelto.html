@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Using Functions</title>
+<link href="_css/site.css" rel="stylesheet">
+<script type="text/javascript" src="_js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready( function(){
+
+	var preparacion = "<div>";
+	preparacion += "<h3>Paginas web a las que hace referencia este artículo</h3>";
+	preparacion += "<ul id='bib'>";
+	preparacion += "</ul>";
+	preparacion += "</div>";
+	$(".main").append(preparacion);
+
+	$("a").each( function() {
+		var nombre = $(this).attr("href");
+		var texto = $(this).html();
+		$("#bib").append("<li><span class='resaltado'>" + texto + "</span>: " 
+		              + nombre + "</li>");
+	}); //Fin de each
+	
+});  // Fin de ready
+</script>
+
+<style type="text/css">
+	.resaltado{font-weight: bold;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="content">
+		<div class="main">
+		<h1>A Dynamically Created Bibliography</h1>
+			<p>Throughout history, there have been many fantastic Web sites. 
+			   <a href="http://www.yahoo.com/">Yahoo!</a> comes to mind, as does 
+			   <a href="http://www.google.com/">Google</a>. 
+			   And few will forget the culture-shaping influence of 
+			   <a href="http://www.hampsterdance.com/">Hampster Dance</a>.
+			</p>
+		</div>
+
+	</div>
+</div>
+</body>
+</html>

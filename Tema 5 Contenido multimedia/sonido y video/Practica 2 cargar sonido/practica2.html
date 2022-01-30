@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practica 4</title>
+        <script src="https://kit.fontawesome.com/3ec96a9d80.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/practica2.css">
+    </head>
+    <body>
+        <header>
+            <h1>Reproductor de sonido</h1>
+            Sonido a reproducir: <input type="file" id="ficheros" name="files[]" multiple><br>
+        </header>
+        <div id="player">
+            <audio id="miAudio" controls="controls"></audio>
+            <div id="buttons1">
+                <button onclick="hide();playAndPause();"><i class="fas fa-play"></i>/<i class="fas fa-pause"></i></button>
+            </div>
+            <br>
+
+            <p id="duracion"></p>
+            <p id="nombre"></p>
+            <p id="reproduciendo"></p>
+          
+        </div>
+
+        <script>
+            /* Cargamos el reproductor de sonido en miAudio */
+            var miAudio = document.querySelector("#miAudio");
+            var duracion = document.getElementById("duracion");
+            var nombre = document.getElementById("nombre");
+            var reproduciendo = document.getElementById("reproduciendo");
+            var nombreFichero;
+            /*
+             * Leemos el nombre del fichero o ficheros que queremos reproducir
+             */
+            function handleFileSelect(evt) {
+                /* Cargamos en files la lista de ficheros 
+                 * seleccionada en el input file.
+                 * Es un objeto de tipo FileList
+                 */
+                var files = evt.target.files; 
+                
+                /* Recorremos la lista de archivos seleccionados
+                 * para capturar sus nombres
+                 */
+                for (var i = 0, f; f = files[i]; i++) {
+
+                /* Solo procesamos los ficheros de sonido */
+                if (!f.type.match('audio/*')) {
+                    continue;
+                }
+                
+                /* Usaremos la variable reader para abrir los ficheros
+                 * y capturar su nombre
+                 */
+                var reader = new FileReader();
+               
+                // Cierre para capturar la informacion.
+                reader.onload = (function(theFile) {
+                    return function(e) {
+                    
+                        //console.log(theFile.name)
+                        //miAudio.src = e.target.result;
+                        miAudio.src = reader.result;
+                        nombreFichero = theFile.name;
+                        nombre.innerHTML = nombreFichero;
+                        
+                    };
+                    
+                })(f);
+
+                // Leemos el archivo como un data URL.
+                reader.readAsDataURL(f);
+                }
+
+            }
+
+
+            // function handleAudioChange(event){
+            //     /*
+            //      * Cuando cambia el contenido del audio se actualizan
+            //      * los valores asociados en las etiquetas (parrafos)
+            //      * de la interfaz. 
+            //      */
+            //      reproduciendo.innerHTML = "Inicie la reproducción pulsando Play.";
+            //      nombre.innerHTML = nombreFichero;
+            // }
+            document.getElementById('ficheros').addEventListener('change', handleFileSelect, false);
+            function hora(segundos){
+                var d=new Date(segundos*1000);//el objeto Date se construye con milisegundos 
+                // Ajuste de las 23 horas
+                var hora = (d.getHours()==0)?23:d.getHours()-1;
+                var hora = (hora<9)?"0"+hora:hora;
+                var minuto = (d.getMinutes()<9)?"0"+d.getMinutes():d.getMinutes();
+                var segundo = (d.getSeconds()<9)?"0"+d.getSeconds():d.getSeconds();
+                return hora+":"+minuto+":"+segundo;	 
+            }
+
+            function playAndPause() {
+                if(miAudio.paused) {
+                    miAudio.play();
+                }else {
+                    miAudio.pause();
+                }
+            }
+
+            function hide() {
+                if(miAudio.paused) {
+                    document.getElementById("duracion").style.visibility = "visible";
+                    
+                }else {
+                    document.getElementById("duracion").style.visibility = "hidden";
+                    
+                }
+            }
+
+            miAudio.addEventListener("timeupdate",function(ev) {
+                document.getElementById("duracion").innerHTML=hora(miAudio.currentTime)+"/"+hora(miAudio.duration);
+            });   
+
+            miAudio.addEventListener("play",function(ev) {
+                document.getElementById("reproduciendo").innerHTML="Ejecutando el audio.";
+                miAudio.style.visibility = "visible";
+            });
+
+            miAudio.addEventListener("pause",function(ev) {
+                document.getElementById("reproduciendo").innerHTML="El audio esta pausado.";
+                miAudio.style.visibility = "hidden";
+            });
+
+            
+            miAudio.onerror = function() {
+                console.log("Error " + miAudio.error.code + "; details: " + miAudio.error.message );
+            }
+        </script>
+    </body>
+</html>

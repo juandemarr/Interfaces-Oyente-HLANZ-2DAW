@@ -1,0 +1,95 @@
+1. SELECCIONES
+--Apartado 1: $("div.module").each(function(){
+    $(this).addClass("verde");
+})
+--Apartado 2: Formas diferentes de seleccionar el mismo elemento
+              $("#myListItem")
+  console.log($("#myList li:nth-child(3)").text());
+              $("#myList").children("#myListItem").text()
+              $("#myList").children().eq(2).text()
+              $("#myList").children().first().next().next().text()
+--Apartado 3: Seleccionar el label del input con selector de clase (enter search term)
+              console.log($("label[for=q]").text())
+--Apartado 4: Nº elementos ocultos
+            console.log($(":hidden").length)
+--A5 nº de imag con alt
+            $("img[alt]").length
+--A6 filas impares de la tabla
+            console.log("table#fruits tr:odd").text());
+            
+2. RECORRER EL DOM
+--A1
+$("img[alt]").each(function(){
+    console.log($(this).attr("alt"));
+})
+--A2
+$("input").parent().addClass("blah")
+--A3
+$("#myList li.current").removeClass("current").next().addClass("current");
+--A4
+$("#specials select").parent().next().children("input[type=submit]").val();
+$("#specials select").closest("ul").find("input[type='submit']").val("Ir")
+--A5
+$("ul#slideshow").children().first().addClass("current").siblings().addClass("disabled");
+otra forma
+4("#slideshow li:first").addClass("current").siblings().addClass("disabled");
+
+3. MANIPULACION
+--A1 Añadir 5 items al final de #myList
+
+for(var i = 8; i<13 ; i++){
+    $("#myList").append("<li>Nuevo elemento "+i+"</li>");
+}
+
+otra forma
+var i = $("#myList li").length;
+for(var j = i+1; j<i+5 ; j++){
+    $("#myList").append("<li>Nuevo elemento "+j+"</li>");
+}
+
+otra forma
+var lista = $("#myList");
+for(var i = j+1; i<j+5 ; i++){
+    nuevoElem = $("<li>Nuevo elemento "+i+"</li>");
+    nuevoElem.appendTo(lista);
+}
+
+--A2
+$("#myList li:even").remove();
+
+--A3
+$("div.module:last").append("<h2>Nuevo titulo</h2>").append("<p>Nuevo parrafo</p>");
+Otra forma
+var cabecera = $("<h2>Nuevo titulo</h2>");
+var parrafo = $("<p>Nuevo parrafo</p>");
+$("div.module:last").append(cabecera).append(parrafo);
+
+--A4
+let select=$("select");
+
+select.append("<option value='Wednesday'>Wednesday</option>");
+
+otra forma
+var jueves = $("<option value='Thursday'>Thursday</option>");
+jueves.appendTo(select);
+
+--A5
+$("div.module:last").after("<div class='module' id='Nueva'></div>");
+$img = $("img");//selecciona todas las img
+$("#nueva").append("<img src='" + $img.attr("src") + "' alt='" + $img.attr("alt") + "'>");
+
+Otra forma
+var ultimoModulo = $("div.module:last");
+var img = $("img");
+var nuevoModulo = $("<div class='module' id='Ultimo'></div>");
+nuevoModulo.append("<h2>Ultimo modulo</h2>");
+nuevoModulo.append("<p>Contiene todas las imagenes</p>");
+
+img.each(function(){
+    //var imagen = "<img src='" + $(this).attr("src") + "' alt='" + $(this).attr("alt") + "'>";
+    //nuevoModulo.append($(imagen)); //la var imagen es string, con la seleccion $() se convierte a objeto jQuery
+
+    //otra forma
+    nuevoModulo.append(this);
+})
+ultimoModulo.after(nuevoModulo);

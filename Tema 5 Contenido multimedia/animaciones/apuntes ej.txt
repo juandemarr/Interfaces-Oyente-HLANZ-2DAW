@@ -1,0 +1,18 @@
+el de las cajas que giran, el hover al contenedor padre y al lado el nombre de la caja, aqui ponemos lo que cambia
+La transicion se la puso a la caja origin al con all 2s linear 2s(delay) , si se pone solo al hover la vuelta de la caja no se produce
+
+
+el de la caja ocn imagen y ahover encima hay dos cajas
+la de adentro con una opacidad tranparente, h2 y p se desplazan desde fuera hacia donde deben estar
+el hover sobre el padre cambia la opacidad y las posiciones
+el titulo baja, aparece capa de color y 
+todos los hover s ehacen al padre y se pone al lado el nombre de la etiqueta, en donde se palicaran los cambios
+se le ponen distintos delays para que una cosa vaya despues de la otra. Con esto se indica el orden en el que aparecen
+
+animation segundos 60s steps(60) infinite;
+
+keyframe segundos{
+    to{
+        tranasform:degre(360);
+    }
+}
