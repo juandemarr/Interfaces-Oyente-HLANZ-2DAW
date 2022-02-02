@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Introducing Events</title>
+<link href="_css/site.css" rel="stylesheet">
+<style>
+	li{
+		cursor:pointer;
+		color:grey;
+	}
+</style>
+<script src="_js/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function(){
+		let input = $("#textfield");
+		let ul = $("#tasklist");
+		function add(){
+			if(input.val() != ""){
+				ul.append("<li>"+$("#textfield").val()+"</li>");
+				input.val("");
+				input.focus();
+			}
+		}
+
+
+		$("form").submit(function(e){
+			e.preventDefault();
+		})
+
+		//Al clicar el boton se añade el elemento
+		$("#button").on("click",add);
+		//Al clicar el boton y llamar a la funcion, hay que hacerlo sin los parentesis para llamarla como callback
+
+		//Al pulsar enter tbn se añade
+		$("#textfield").on("keypress",function(e){
+			if(e.which==13){
+				//e.preventDefault();
+				add();
+				
+			}
+		});
+		
+		//Al pasar el raton por encima cambia color y subrayado
+		ul.on("mouseenter","li",function(){
+			$(this).css("text-decoration","line-through");
+			$(this).css("color","#CACACA");
+		});
+		ul.on("mouseleave","li",function(){
+			$(this).css("text-decoration","none");
+			$(this).css("color","grey");
+		});
+
+		//Al hacer click se elimina
+		ul.on("click","li",function(){
+			$(this).remove();
+		});
+
+
+	});
+</script>
+</head>
+<body id="events">
+<div class="wrapper">
+	<div class="content">
+		<div class="main">
+			<form action="#" method="get">
+			<p>
+				<input name="textfield" type="text" id="textfield">
+				<input name="button" type="button" id="button" value="Add Task">
+			</p>
+		</form>
+		<h1>To Do List</h1>
+		<ul id="tasklist">
+
+		</ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>

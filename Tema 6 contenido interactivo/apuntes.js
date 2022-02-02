@@ -3,7 +3,7 @@ learn.jquery.com (desde jquery, how jaquery works)
 jquery core API
 
 <script src="o descargado de la pag oficial" o "url de cdn,seleccioanr el minified"></script>
-
+preferible de cdn, ya que tras acceder se queda en cache
 
 //Poner siempre esto para cargar el dom
 
@@ -16,6 +16,7 @@ $(function(){
 
 });
 
+!!!!!!!!!!!!!!!!!NO USAR FUNCIONES ARROW
 
 --- ELEMENTOS
 formas de crear una variable = var, let , const, sin nada y $delante como en $img
@@ -165,18 +166,114 @@ $("#boton").click( function(){
 
 })
 
-- 2 forma, on(admite hasta 4 parametros), se pueden añadir varios eventos simultaneamente a un objeto
+- 2 forma, on(admite hasta 4 parametros) => nombreEvento, elemento, funcion manejadora, objeto de datos
 $("#boton").on("click", function(){
 
 })
 
+-- multiples eventos, se pasan como objetos dentro de on
+$(this) hace referencia al elemento actual que produce el evento
+
+$('p').on({
+    'click': function() {
+    console.log('clickeado');
+    },
+    'mouseover': function() {
+    console.log('sobrepasado');
+    }
+});
+
+--- DESVINCULAR EVENTOS 
+.off("nombreEvento")
+
+$('p').on('click', foo).on('click', bar);
+$('p').off('click', bar); // foo esta atado aún al evento click
+
+//EVENTOS DE RATON
+.blur()
+.click()
+.dblclick()
+.focusin()
+.focusout() si cualquier hijo pierde le foco tbn
+.mousedown() al presionar el boton del raton
+.mouseup() al levantar el boton del raton
+.mouseenter() al entrar a un elemento
+.mouseleave() al salir del objeto
+.mousemouve() cuando se mueve el raton dentro de un elemento
+.mouseover() se propaga por los hijos a diferencia de mouseenter()
+.mouseout() tbn se propaga por los hijos a diferencia de mouseleave()
+
+//EVENTOS DE TECLADO
+.focusin()
+.focusout()
+.keydown() al presionar una tecla
+.keyup() cuando se libera una tecla
+.keypress() al presionar una tecla pero con la idea de capturar que tecla se ha pulsado.Captura uno por uno cada caracter aunque se mantenga pulsado, keydown no
+
+//EVENTOS DE VENTANA
+.scroll() cuando se mueve un scroll
+.resize() //cuando a un elemento se le cambia el tamaño de la ventana
+
+//OBJETO DEL EVENTO e
+tienen propiedades y metodos:
+pageX, pageY //posicion del puntero , relativo a las zonas superiores e izquierda de la pag
+type //tipo de evento
+which //boton o tecla presionada
+data //lee info pasada al objeto del evento
+target
+preventDefault()
+stopPropagation()
+
+//VINCULAR UN EVENTO UTILIZANDO EL MÉTODO ON CON INFORMACIÓN ASOCIADA
+$( "button" ).on( "click", {name: "Karl", date: "32"}, greet );
+//de poner mas datos, irian dostos dentro de los {} separados por comas
+
+se accede con e.data.name
+
+function greet( event ) {
+    alert( "Hello " + event.data.name );
+}
+
+
+//EJECUCIÓN AUTOMÁTICA DE CONTROLADORES DE EVENTOS
+trigger, jQuery provee una manera de disparar controladores
+de eventos sobre algún elemento sin requerir la acción del usuario.
+aqui se crea: $( "p" ).on( "myCustomEvent", function( event, myName )
+aqui se llama: 
+$( "button" ).click(function () {
+$( "p" ).trigger( "myCustomEvent", [ "John" ] );
+});
+
+
+//DELEGACION DE EVENTOS
+al asociar un evento a un elemento, si luego se crean mas de esos elementos, no tendran dicho evento, 
+para ello se coge el contenedor y sepone la funcion indicandole el elemento sobre el que se tiene que ejecutar
+
+$( "body" ).on( "click", "p", function() {
+$( this ).after( "<p>Another paragraph! " + (++count) + "</p>" );
+});
+
+//DESVINCULAR EVENTOS DELEGADOS
+$('#myUnorderedList').off('click', 'li');
+
+
+EXTRA:
 .focus()
 .blur() al perder el foco
+.hover()
+.show()
+.hide()
 
 #objeto es un input type text
 $('#objeto).keypress(function(e){
     e.preventDefault() //evita que aparezca por defecto el texto en este input
     $("#salidapress").append(e.which + ";" + String.fromCharCode(e.which));
 })
+
+
+
+
+Hacer ej a partir del 21
+
 
 */
