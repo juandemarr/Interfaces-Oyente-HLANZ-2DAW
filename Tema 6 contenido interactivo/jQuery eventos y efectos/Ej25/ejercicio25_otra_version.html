@@ -10,11 +10,12 @@
 		color:grey;
 	}
 </style>
-<script src="_js/jquery-3.6.0.min.js"></script>
+<script src="../jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function(){
 		let input = $("#textfield");
 		let ul = $("#tasklist");
+		
 		function add(){
 			if(input.val() != ""){
 				ul.append("<li>"+$("#textfield").val()+"</li>");

@@ -166,7 +166,9 @@ $("#boton").click( function(){
 
 })
 
-- 2 forma, on(admite hasta 4 parametros) => nombreEvento, elemento, funcion manejadora, objeto de datos
+- 2 forma, on("click", 'li', {name: "Karl", date: "32"}, function(){} ) => hasta 4 parametros: 
+nombreEvento, delegacion de eventos, datos, funcion manejadora
+
 $("#boton").on("click", function(){
 
 })
@@ -270,10 +272,41 @@ $('#objeto).keypress(function(e){
     $("#salidapress").append(e.which + ";" + String.fromCharCode(e.which));
 })
 
-
-
-
 Hacer ej a partir del 21
 
 
+--- EFECTOS
+Para jquery ui, importar css min y jquery min
+
+Sustitutos de slideToggle o slideUp etc, con jquery ui
+.toggle(nombreEleido, opciones, duracion en ms)
+(ver api)
+
+$("#dashboard").hover(
+			function(){
+				$(this).stop().animate({
+					left:"0px",
+					backgroundColor:"rgb(27, 45, 94)"
+				}, 500 , "easeInSine");	//si la duracion y efectos son los mismos para todas las propiedades, se ponen
+                al final fuera de las {} de las propiedades			
+			},
+			function(){
+				$(this).stop().animate({
+					//left: [1500, "easeOutBounce", "=0"],
+					//backgroundColor : [1500, "easeOutBounce", "rgb(255, 211, 224)"]
+					left:"-92px",
+					backgroundColor:"rgb(255, 211, 224)"
+				}, 1500, "easeOutBounce");
+			}
+		)
+
+el .stop() es para que si se hace otra animacion, no se ponga en cola y tenga que esperar a que termine la primera, 
+sino que termine en ese momento y comience la ssiguiente sin acumularse
+
+.wrap() hace que el elemento actual se meta dentro de lo indicado en wrap
+.wrapAll() para todos los elementos llamados asi
+
+
+se pueden crear componentes en jquery, tipo boostrap, con una estructura de html ids y clases, luego en 
+el html se escriben con esa estructura, y se importa ese componente o libreria
 */
