@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="index.js" defer></script>
+    <title>Document</title>
+    <style>
+        img{
+            width:300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <h2>{{author}}</h2>
+        <img v-bind:src="image" :alt="nameImage" :title="nameImage"/>
+        <h3>Tragedias de Darth Plageis el sabio</h3>
+        <p v-if="stock > 5">En venta</p>
+        <p v-else-if="stock <= 5 && stock > 0">Pocas unidades</p>
+        <p v-else>Sin stock :(</p>
+        <p v-show="onSale">En oferta!</p>
+
+        <hr>
+        
+        <h4>Recorrer array</h4>
+        <ul>
+            <li v-for="detail in details" >{{detail}}</li>
+        </ul>
+
+        <h4>Recorrer array de objetos</h4>
+        <ul>
+            <li 
+                v-for="variant in variants" 
+                :key="variant.variantId" 
+                v-on:hover="cambiarImagen(variant.image)"
+                :disabled="!inStock"
+                :style="{backgroundColor:variant.variantColor}"
+            >{{variant.variantDescription}}</li>
+        </ul>
+
+        <p>Cart ({{stock}})</p>
+
+        <button v-on:click="addToCart">Add Tragedy</button>
+        <button @click="removeFromCart">Remove Tragedy</button>
+
+        <hr>
+
+
+
+    </div>
+</body>
+</html>
