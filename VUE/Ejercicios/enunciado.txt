@@ -1,0 +1,3 @@
+1.- Crea una agenda del tipo ToDoList usando Vue.
+
+2.- Crea una tabla de pedido en la que aparezcan una serie de servicios para los que tenemos su nombre y su precio, en la tabla se podrá seleccionar el servicio haciendo click sobre el, al hacer clic se debe actualizar el precio total de los servicios contratados en una división bajo la tabla.

@@ -4,35 +4,57 @@ var app = new Vue({
         message : "Hello there",
         author : "General Kenobi",
         image : "ahsoka.jpg",
+        image2: "",
         nameImage : "Ahsoka",
         onSale : true,
-        stock : 0,
+        cart : 0,
+        stock:7,
+        inStock:true,
         details : ["your","move","you","fool"],
         variants : [
             {
                 variantId : 1,
                 variantDescription : "Grievous",
-                image : "obi.jpg",
+                image : "grievous.jpg",
                 variantColor : "green"
             },
             {
                 variantId : 2,
                 variantDescription : "Kenobi",
-                image : "grievous.jpg",
+                image : "obi-wan.jpg",
                 variantColor : "blue"
             }
         ]
     },
+    computed:{
+        title(){ //al no ser un dato primitivo, se define como funcion
+            return this.nameImage + ' mastery';
+        },
+        modifyP(){
+            if(this.inStock)
+                return "SIGUE ESTANDO EN VENTA";
+            else
+                return "YA NO HAY VENTAS";
+        }
+    },
     methods : {
         addToCart(){
-            this.stock += 1
+            if(this.stock){ // cuando valga cero sera false y no seguira añadiendo
+                this.cart += 1;
+                this.stock -= 1;
+                if(this.stock == 0)
+                    this.inStock=false;
+            }
         },
         removeFromCart(){
-            if(this.stock) // cuando valga cero sera false y no seguira decrementando
-                this.stock -= 1
+            if(this.cart){
+                this.cart -= 1;
+                this.stock += 1;
+            }
+            this.inStock=true;
         },
-        cambiarImagen(image){
-            this.image = image;
+        updateProduct(image){
+            this.image2 = image;
         }
     }
 })

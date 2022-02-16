@@ -11,17 +11,28 @@
         img{
             width:300px;
         }
+        .color-box{
+            width:40px;
+            height:40px;
+
+        }
+        .disabledButton{
+            background-color:grey;
+        }
     </style>
 </head>
 <body>
     <div id="app">
-        <h1>{{message}}</h1>
+        <h1>{{title}}</h1>
         <h2>{{author}}</h2>
         <img v-bind:src="image" :alt="nameImage" :title="nameImage"/>
         <h3>Tragedias de Darth Plageis el sabio</h3>
+        
+        <b>STOCK</b>
         <p v-if="stock > 5">En venta</p>
         <p v-else-if="stock <= 5 && stock > 0">Pocas unidades</p>
         <p v-else>Sin stock :(</p>
+        
         <p v-show="onSale">En oferta!</p>
 
         <hr>
@@ -33,18 +44,26 @@
 
         <h4>Recorrer array de objetos</h4>
         <ul>
-            <li 
+            <li class="color-box"
                 v-for="variant in variants" 
                 :key="variant.variantId" 
-                v-on:hover="cambiarImagen(variant.image)"
-                :disabled="!inStock"
+                v-on:mouseover="updateProduct(variant.image)"
                 :style="{backgroundColor:variant.variantColor}"
             >{{variant.variantDescription}}</li>
         </ul>
 
-        <p>Cart ({{stock}})</p>
+        <p>Cambiando el color de fondo</p>
+        <img :src="image2"></img>
 
-        <button v-on:click="addToCart">Add Tragedy</button>
+        <p>{{modifyP}}</p>
+
+        <p>Cart ({{cart}})</p>
+
+        <button v-on:click="addToCart" 
+                :disabled="!inStock"
+                :class="{disabledButton: !inStock}"
+        >Add Tragedy</button>
+        <!--al ser variable booleana, cuando sea true disabled valdra true y se activará-->
         <button @click="removeFromCart">Remove Tragedy</button>
 
         <hr>

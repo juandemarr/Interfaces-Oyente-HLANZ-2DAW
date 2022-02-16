@@ -1,0 +1,3 @@
+Documentacion de Vue: https://es.vuejs.org/v2/guide/
+Lista de reproduccion sobre vue: https://www.youtube.com/playlist?list=PL7VXpoQP1k27nOnbERp6hc3cT1Yc4HFvB
+Algunos cursos gratis de vue: https://www.vuemastery.com/

@@ -4,7 +4,7 @@ Framework progresivo, desde lo mas sencillo hasta una app completa
 para cargarlo desde el cdn
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
-RESUMEN: se crea todo en js, se linka al elemento principal de html, y alli llamamos a sus variables
+Se crea todo en js, se une al html mediante el: y en html llamaos a sus variables
 
 La instancia vue, esta formada por un objeto de opciones
 --el : hace referencia al elemento html al que se va a linkar
@@ -79,6 +79,16 @@ creamos debajo de data otro apartado llamado methods:{
 
 --AÑADIR CLASES
 :class="{disabledButton : !inStock}"
+se puede añadir un array de clases :class="[activeClass, errorClass]"
+
+--- Propiedades calculadas, obtenidas a partie de algun metodo o calculo, y queremos mostrar ese dato
+Se realiza al principio cuando se carga la instancia, y cuando se obtiene otro resultado en ese dato
+(equivalente al useEffect de react)
+
+si no ser un dato primitivo, se define como funcion
+
+
+--- todas las funciones se llaman sin () en html
 
 
 */
