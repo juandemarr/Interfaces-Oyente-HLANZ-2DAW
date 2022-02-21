@@ -9,20 +9,21 @@ var app = new Vue({
         onSale : true,
         cart : 0,
         stock:7,
-        inStock:true,
         details : ["your","move","you","fool"],
         variants : [
             {
                 variantId : 1,
                 variantDescription : "Grievous",
                 image : "grievous.jpg",
-                variantColor : "green"
+                variantColor : "green",
+                variantQuantity:10
             },
             {
                 variantId : 2,
                 variantDescription : "Kenobi",
                 image : "obi-wan.jpg",
-                variantColor : "blue"
+                variantColor : "blue",
+                variantQuantity:0
             }
         ]
     },
@@ -55,6 +56,9 @@ var app = new Vue({
         },
         updateProduct(image){
             this.image2 = image;
+        },
+        inStock(){
+            return this.variants[this.selectedVariant].variantQuantity
         }
     }
 })
