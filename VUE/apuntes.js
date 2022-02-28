@@ -97,7 +97,8 @@ COMPONENTES
 Vue.component('product',{
     props:{
         propiedad:{
-
+            type:, //validaciones opcionales?
+            required:
         }
     },
     template: `  //esto es equivalente al return de react. Solo puede disponer de un elemento padre html
@@ -105,8 +106,8 @@ Vue.component('product',{
             
         </div>
     `,
-    data(){ //ya no es un objeto como en la instancia vue, sino una funcion, para que cada componente tenga sus 
-            //propios datos, sino estarian compartidos
+    data(){ //ya no es un objeto como en la instancia vue, sino una funcion que devuelve un objeto data, para que cada 
+            //componente tenga sus propios datos, sino estarian compartidos
         return {
 
         }
@@ -123,7 +124,7 @@ Vue.component('product',{
 
 1--- Para pasar datos desde FUERA en la instancia hacia dentro del componente, props
 En el padre se le asigna un valor en data a esa propiedad.
-    data(){
+    data:{
         details: ['80% cotton', '20% polyester', 'Gender-neutral'],
     }
 2---En el hijo se define el tipo de dato que va a recibir en esa propiedad, se hace en props:{}
@@ -142,7 +143,153 @@ En el padre se le asigna un valor en data a esa propiedad.
 
 --- Parapasar datos del componente HACIA FUERA a la instancia prinicpal, emitimos eventos
 dentro de la funcion:
-    this.$emit('nombreEvento', datoaEmitir)
+    this.$emit('nombreEvento', datoaEmitir) //esto emite un evento que se recibe en el padre escribiendo esto:
+
+    <product :premium="premium" @add-to-cart="updateCart"></product>  //al escuchar al evento add-to-cart, llama
+    al metodo updateCart definido aqui en el padre
+
+Se puede crear un array con todos los id de los prodctos que se van emitiendo, y luego .length indica el numero de 
+elementos que hay en el carrito.
+
+
+--- FORMS
+
+Vue.component('product-review',{
+    template:`
+        <input>
+    `,
+    data() {
+      return {
+        name: null,
+        review: null,
+        rating: null,
+    --- errors: [] //Para la validacion personalizada
+      }
+    },
+    methods:{
+        onSubmit() { //Esto crea un objeto con los datos introducidos, y luego resetea los campos.
+        --- if(this.name && this.review && this.rating){ //Para la validacion personalizada
+                let productReview = {
+                    name: this.name,
+                    review: this.review,
+                    rating: this.rating
+                }
+                this.$emit('review-submitted', productReview) //como este componente está dentro del componente product,
+                                //pasamos el objeto al padre.
+                this.name = null
+                this.review = null
+                this.rating = null
+        --- } else {
+                if(!this.name) this.errors.push("Name required.")
+                if(!this.review) this.errors.push("Review required.")
+                if(!this.rating) this.errors.push("Rating required.")
+            }
+        }
+    }
+})
+
+v-model, hace un binding desde el template al data del componente, aparte del v-bind que lo hacia desde el data al 
+template. Es un binding en doble sentido, data y template. Cuando algo cambie se actualiza en el otro sentido.
+
+--- <p v-if="errors.length">  //Para la validacion
+      <b>Please correct the following error(s):</b>
+      <ul>
+        <li v-for="error in errors">{{ error }}</li>
+      </ul>
+    </p>
+
+<form class="review-form" @submit.prevent="onSubmit">
+    <p>
+        <label for="name">Name:</label>
+        <input id="name" v-model="name" placeholder="name">
+    </p>
+      
+    <p>
+        <label for="review">Review:</label>      
+        <textarea id="review" v-model="review"></textarea>
+    </p>
+      
+    <p>
+        <label for="rating">Rating:</label>
+        <select id="rating" v-model.number="rating">
+          <option>5</option>
+          <option>4</option>
+          <option>3</option>
+          <option>2</option>
+          <option>1</option>
+        </select>
+    </p>
+          
+    <p>
+        <input type="submit" value="Submit">  
+    </p>    
+    
+</form>
+
+**El v.model.number es un modificador que convierte lo que recibe a integer. Si se queda el campo vacio, lo convierte a string
+y da fallo. Usar Number(this.myNumber)
+
+**submit.prevent es un modificador de eventos. Hay mas en: https://v2.vuejs.org/v2/guide/events.html
+
+**En el componete product que es el padre, cuando llamamos al hijo:
+<product-review @review-submitted="addReview" ></product-review>
+
+//Esto para mostrar las reviews
+    <div>
+        <h2>Reviews</h2>
+        <p v-if="!reviews.length">There are no reviews yet.</p>
+        <ul>
+          <li v-for="review in reviews">
+          <p>{{ review.name }}</p>
+          <p>Rating: {{ review.rating }}</p>
+          <p>{{ review.review }}</p>
+          </li>
+        </ul>
+       </div>
+
+en methods:{
+    addReview(productReview) {
+      this.reviews.push(productReview)
+    }
+}
+y en data(){
+    return{
+        reviews: []
+    }
+}
+
+--- PODEMOS HACER VALIDACIONES PERSONALIZADAS.
+En el metodo onSubmit, comprueba si le llegan datos del form, sino mete a un array errors los mensajes de error 
+de cada campo.
+Ese array se muestra encima del form, por ejemplo, en forma lista.
+
+
+
+--- PESTAÑAS
+
+Si pinchas en una pestaña, se muestran las reviews, si pinchas en la pestaña añadir review, se muestra solo el form
+
+Creamos un componete pestañas:
+Vue.component('product-tabs', {
+    template: `
+        <div>
+            <span class="tab" 
+                v-for="(tab, index) in tabs" :key="index"
+                @click="selectedTab = tab" //este ultimo igual le asigna al dato selectedTab el valor tab clicado del bucle
+            >{{ tab }}</span>
+        </div>
+    `,
+    data() {
+        return {
+          tabs: ['Reviews', 'Make a Review'],
+          selectedTab: 'Reviews'  // set from @click      
+        }
+    }
+})
+
+
+
+
 
 
 

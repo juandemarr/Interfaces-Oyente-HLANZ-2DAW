@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Recuperación jQuery - 11 noviembre 2019</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+        <script src="jquery-3.6.0.js"></script>
+        importar jquery ui para animaciones
+        <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header><h1>Examen jQuery - 19/02/2021</h1></header>
+    <div id="contenedor">             
+        
+        <section id="recogidaDatos">
+            <h1>Datos de producto</h1>
+            <form id="formulario" action="#" method="get">
+                <div class="bloque">
+                    <label for="producto">Producto:</label>
+                    <input type="text" name="producto" id="producto">
+                </div>
+                <div class="bloque">
+                    <label for="precio">Precio:</label>
+                    <input type="number"  min="0" max="1000" name="precio" id="precio">
+                </div>
+                <div class="bloque">
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number"  min="1" max="100" name="cantidad" id="cantidad">
+                </div>
+                <input type="submit" id="btnAnadir" value="Añadir" >
+            </form>
+        </section>
+            
+        
+
+        <section id="lista"> 
+            <h1>Lista de la compra</h1>
+            {# <article class="lineaArticulo">
+                <span>Producto</span>
+                <span>Precio</span>
+                <span>
+                    Cantidad:<input type="number"  min="1" max="100" class="cant" value="1">
+                </span>
+                <span class="lineaTotal">Total</span>
+                <button class="botonBorrar">Borrar</button>
+            </article> #}
+        </section>
+
+        <section id="total">
+            <div id="des">
+                <label for="casillaDescuento">Descuento:</label>
+                <input type="checkbox" name="casillaDescuento" value="descuento" />
+                <input type="number"  min="1" max="100" name="descuento" id="descuento" value="1"><br/>
+            </div>
+            Total: <span id="total">Precio total</span>
+        </section>
+
+        <div id="panel" class="cookie">
+            <button id="btnCookie">Ocultar</button>
+            <br/>
+            Utilizamos cookies
+        </div>
+    </div>
+
+    <script type="text/javascript">
+    $(function(){
+        $("#formulario").submit(function(e){
+            e.preventDefault();
+        });
+
+        $("#des").animate({
+            opacity:"50%"
+        });
+
+        //1. Crear articulo 
+        $("#btnAnadir").click(function(){
+            //comprobar que no esten vacio
+            var producto = $("#producto").val();
+            var precio = $("#precio").val();
+            var cantidad = $("#cantidad").val();
+            var total = precio * cantidad;
+
+            var articulo = $("<article></article>");
+            articulo.append()//irle metiendo el producto, precio, input type number para la cantidad, y el total
+            articulo.append()//boton borrar
+            articulo.appendTo("#lista");
+
+        });
+
+        //2. Modificar total al cambiar la cantidad del producto
+        $("#lista").on("change", ".lineaArticulo input[type='number']",function(){ //se lance el evento solo cuando cambie lo indicado, ya que el padre si existe previamente. Delegacion de eventos
+            var modificarCantidad = $(this).val();
+            console.log(modificarCantidad);
+
+            $articulo = $(this).parent().parent();
+            var precio = parseFloat($articulo.children("span").eq(1).text());
+            var nuevoTotal = precio*modificarCantidad;
+            $articulo.find(".lineaTotal").text(nuevoTotal.toFixed(2));
+        });
+
+        //3.Dsp del 5
+        $("#lista").on('click','button.botonBorrar',function(){
+            $(this).parent().remove();
+            $("button.calcularTotal").click();
+        });
+
+
+        //4.Opacidad de la casilla descuento
+        $("#des input[type='checkboc']").change(function(){
+            //comprobar si la casilla esta seleccionada
+            if($(this).is(":checked")){
+                $(this).parent().animate({
+                    opacity: "100%"
+                });
+            }else{
+                $(this).parent.animate({
+                    opacity:"50%"
+                });
+            }
+        });
+
+        //5. Precio total
+        $("button.calcularTotal").on("click",function(){
+            var total=0;
+
+            $(".lineaTotal").each(function(){
+                var textoTotal = $(this).text();
+                total += parseFloat(textoTotal);
+            });
+
+
+            if($("#des input[type='checkboox']").is(":checked")){
+                var descuento = $("#descuento").val();
+                descuento = (total * descuento) / 100;
+                total -= descuento;
+            }
+
+            $("#totalFinal").text(total);
+        });
+
+        //6. Animacion de aviso de cookie
+        $("#btnCookie").click(function(){
+            if($(this).text() == "Ocultar"){
+                $(this).parent().stop().animate({
+                    bottom:"-=37px"
+                }, 1000, "easeInSine");
+                $(this).text("Aviso sobre cookies");
+            }else{
+                $(this).parent().stop().animate({
+                    bottom:"+=37px"
+                }, 1000, "easeOutBounce");
+
+                $(this).text("Ocultar");
+            }
+        });
+
+
+
+    });
+    </script>
+</body>
+</html>
