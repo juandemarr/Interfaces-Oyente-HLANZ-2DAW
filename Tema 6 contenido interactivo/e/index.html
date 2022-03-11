@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Examen jQuery</title>
+    <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=aSlqHZEKaxM8ssOEqNOpbL8iSeuwSCZfsjvaT0B3K46qggh_hCwPkmG3P2YuKXH4r-eXtyctlEeeh6a9T3U4aEluDNld2NLU5o41nuLo30HuZHZ3b-fIFMKO3Kcv4ICdOhfuTtxNMk8etz2NAGekJW0jI_m_0jHJSGx4OAiSJ60EjaiTJtV_o7KTjkhN8k3IhtQR0VXj7p3tVXo4uq8dbg" charset="UTF-8"></script></head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="jumbotron">Examen JQuery - Gastos del mes</h1>
+        <div id="app">
+          <table class="table table-stripped">
+            <thead>
+              <tr>
+                <th style="width: 40px;"></th> 
+                <th>Descripción</th> 
+                <th style="width: 200px;">Cantidad</th>
+                <th style="width: 100px;">Modificar</th> 
+                <th style="width: 100px;">¿Pagado?</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td> 
+                <td><input type="text" class="form-control"></td> 
+                <td><input type="text" class="form-control"></td> 
+                <td><button type="button" class="btn btn-success btn-block">Agregar</button></td>
+                <td></td>
+              </tr> 
+              <tr>
+                <td><button type="button" class="btn btn-danger btn-xs">
+                  <i class="glyphicon glyphicon-trash"></i></button>
+                </td> <td>Servicios</td> <td>200.00</td> 
+                <td class="text-center">
+                  <button class="btn btn-default btn-sm btn-primary"><!----> 
+                    <i class="glyphicon glyphicon-pencil"></i></button>
+                </td>
+                <td title="No" class="text-center">
+                  <button class="btn btn-default btn-sm"><!----> 
+                    <i class="glyphicon glyphicon-remove"></i></button>
+                </td>
+              </tr>
+              <tr>
+                  <td><button type="button" class="btn btn-danger btn-xs">
+                  <i class="glyphicon glyphicon-trash"></i></button></td> 
+                  <td>Hosting de Anexsoft</td> <td>90.00</td> 
+                  <td class="text-center">
+                    <button class="btn btn-default btn-sm btn-primary"><!----> 
+                      <i class="glyphicon glyphicon-pencil"></i></button>
+                  </td>
+                  <td title="Si" class="text-center">
+                    <button class="btn btn-default btn-sm btn-success">
+                      <i class="glyphicon glyphicon-ok"></i> 
+                    </button>
+                    </td>
+                  </tr>
+            </tbody>
+            <tfoot>
+              <tr class="text-danger">
+                <td></td> 
+                <td class="text-right">Por pagar</td> 
+                <td>200.00</td> 
+                <td></td>
+              </tr> 
+              <tr class="text-success">
+                <td></td>
+                <td class="text-right">Pagado</td> 
+                <td>90.00</td> 
+                <td></td>
+              </tr> 
+              <tr class="text-info">
+                <td></td> 
+                <td class="text-right">Total</td> 
+                <td>290.00</td> 
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+</body>
+</html>
